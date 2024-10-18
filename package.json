@@ -4,7 +4,8 @@
 	"description": "Side Project By NgTuan",
 	"main": "index.js",
 	"scripts": {
-		"compose-up": "docker-compose -f docker-compose.services.yml up -d"
+		"compose-up": "docker-compose -f docker-compose.services.yml up -d",
+		"compose-build": "docker-compose -f docker-compose.services.yml build"
 	},
 	"author": "Nguyễn Tuân",
 	"license": "ISC"

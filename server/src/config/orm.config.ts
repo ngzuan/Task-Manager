@@ -17,7 +17,7 @@ export function buildDatabaseConnectionOptions(): TypeOrmModuleOptions {
     };
 
     return {
-        name: 'TaskManager',
+        name: 'taskmanager',
         type: 'postgres',
         ...connectionParams,
         synchronize: false,

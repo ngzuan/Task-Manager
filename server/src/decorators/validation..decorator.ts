@@ -13,3 +13,9 @@ export const ValidateUUID = (options?: UUIDOptions) => {
         each ? IsArray() : IsString(),
     );
 };
+
+
+export const ValidateDate = () => {
+
+
+}
