@@ -1,23 +1,24 @@
 import { BaseEntity, CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 export abstract class BaseIdentityEntity extends BaseEntity {
-    @PrimaryGeneratedColumn('uuid', {
-        name: 'id',
-    })
+    @PrimaryGeneratedColumn('uuid')
     id: string
 
     @CreateDateColumn({
-        name: 'createdDateAt'
+        default: () => 'now()',
+        name: 'createdAt'
     })
-    createdDateAt: Date
+    createdAt: Date
 
     @DeleteDateColumn({
-        name: 'deletedDateAt'
+        default: () => 'now()',
+        name: 'deletedAt'
     })
-    deletedDateAt: Date
+    deletedAt: Date
 
     @UpdateDateColumn({
-        name: 'updatedDateAt'
+        default: () => 'now()',
+        name: 'updatedAt'
     })
-    updatedDateAt: Date
+    updatedAt: Date
 }

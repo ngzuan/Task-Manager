@@ -1,6 +1,8 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
+import { User } from "src/enitities/user.entity";
 
 export function buildDatabaseConnectionOptions(): TypeOrmModuleOptions {
+    console.log(process.env.DB_NAME)
     const connectionParams = {
         database: process.env.DB_NAME,
         port: parseInt(process.env.PG_PORT) || 5432,
@@ -11,13 +13,13 @@ export function buildDatabaseConnectionOptions(): TypeOrmModuleOptions {
         synchronize: true,
         autoLoadEntities: true,
         logging: process.env.ORM_LOGGING || false,
+
         extra: {
             max: 25,
         },
     };
 
     return {
-        name: 'taskmanager',
         type: 'postgres',
         ...connectionParams,
         synchronize: false,
@@ -26,5 +28,6 @@ export function buildDatabaseConnectionOptions(): TypeOrmModuleOptions {
         migrationsTransactionMode: 'all',
         logging: !!process.env.ORM_LOGGING || false,
         keepConnectionAlive: true,
+        entities: [User]
     };
 }

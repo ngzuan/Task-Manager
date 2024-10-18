@@ -6,6 +6,7 @@ import { RequestContextMiddleware } from './middlewares/request-context.middlewa
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { buildDatabaseConnectionOptions } from './config/orm.config';
 import { ProjectModule } from './modules/project.module';
+import { AuthModule } from './modules/auth.module';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { ProjectModule } from './modules/project.module';
       envFilePath: "../.env"
     }),
     TypeOrmModule.forRoot(buildDatabaseConnectionOptions()),
-    ProjectModule
+    ProjectModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
